@@ -17,41 +17,51 @@ body {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Large Photo Banner</title>
+    <title>Photo Banner with Buttons</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        
-        .banner {
-            width: 70%;
-            height: 380px; 
-            background-image: url('https://live.staticflickr.com/4210/35013849980_3497b3a897_b.jpg'); 
-            background-size: cover; 
-            background-position: center center; 
+        .banner-container {
             position: relative;
+            width: 100%;
+            height: 300px;
+            background-image: "https://wallpapers.com/images/hd/cool-sunset-b28jqpz8jwkp7uko.jpg";
+            background-size: cover;
+            background-position: center;
         }
 
-        .banner-text {
+        .button-container {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .button-container button {
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
-            font-size: 3rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .button-container button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
 <body>
 
-    <!-- Banner Section -->
-    <div class="banner">
-        <div class="banner-text">Welcome to Arthur McTriangle</div>
+    <div class="banner-container">
+        <div class="button-container">
+            <button>Button 1</button>
+            <button>Book a car wash</button>
+        </div>
     </div>
+
+</body>
+</html>
 
 
 
