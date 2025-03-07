@@ -346,7 +346,57 @@
     </script>
 </body>
 
-    <body>
+   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Notice</title>
+    <style>
+        #cookie-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #f9f9f9;
+            color: #333;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+        }
+        #cookie-notice button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 3px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="cookie-notice">
+        <span>This website uses cookies to ensure you get the best experience.</span>
+        <button onclick="acceptCookies()">Got it</button>
+    </div>
+
+    <script>
+        function acceptCookies() {
+            document.getElementById('cookie-notice').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        window.onload = function () {
+            if (localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookie-notice').style.display = 'none';
+            }
+        };
+    </script>
+
 
 
 
