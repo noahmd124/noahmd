@@ -1,14 +1,81 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Under Maintenance</title>
+  <style>
+    body {
+      background: #f0f4f8;
+      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
+    }
 
-  <head>
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+    }
 
-    <title>Not Found</title>
-  </head>
+    p {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+      color: #666;
+    }
 
-  <body>
+    .gears {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 30px;
+    }
 
-    <h1>This website is being built</h1>
+    .gear {
+      animation: rotate 4s linear infinite;
+      transform-origin: 50% 50%;
+    }
 
-    
-  </body>
+    .gear.second {
+      animation-direction: reverse;
+      animation-duration: 6s;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .footer {
+      font-size: 0.9em;
+      color: #aaa;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="gears" viewBox="0 0 100 100">
+    <g class="gear">
+      <circle cx="50" cy="50" r="20" stroke="#4a90e2" stroke-width="6" fill="none" />
+      <path d="M50 20 L50 10 M50 80 L50 90 M20 50 L10 50 M80 50 L90 50" stroke="#4a90e2" stroke-width="6" />
+    </g>
+    <g class="gear second" transform="translate(25,25)">
+      <circle cx="25" cy="25" r="10" stroke="#50e3c2" stroke-width="4" fill="none" />
+      <path d="M25 15 L25 10 M25 35 L25 40 M15 25 L10 25 M35 25 L40 25" stroke="#50e3c2" stroke-width="4" />
+    </g>
+  </svg>
+
+  <h1>We’ll be back soon!</h1>
+  <p>Our site is currently undergoing scheduled maintenance and so the normal features of this site are unavailable. <br> Check back soon.</p>
+
+  <div class="footer">
+    &copy; 2025 arthurmctriangle.com
+  </div>
+
+</body>
 </html>
