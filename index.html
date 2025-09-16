@@ -2,93 +2,223 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arthur Mctriangle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noah MD - Web Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      background: #f0f4f8;
-      color: #333;
-      font-family: 'Segoe UI', sans-serif;
+    /* ---------- Reset ---------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; }
+
+    /* ---------- Header & Nav ---------- */
+    header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      flex-direction: column;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #4a90e2, #7b4de8);
+      color: #fff;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    nav {
+      display: flex;
+      gap: 1.2rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.3rem 0.6rem;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #FFD700;
+    }
+
+    /* ---------- Banner ---------- */
+    .banner {
+      background: linear-gradient(135deg, #4a90e2, #7b4de8);
+      color: #fff;
       text-align: center;
+      padding: 4rem 1rem;
+    }
+    .banner h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+    .banner p {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 0.3em;
+    /* ---------- Main ---------- */
+    main {
+      padding: 2rem 1rem;
+    }
+    .intro {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .intro h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #4a4a4a;
+    }
+    .intro p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    p {
-      font-size: 1.2em;
-      margin-bottom: 2em;
+    /* ---------- Showcase ---------- */
+    .showcase {
+      max-width: 1000px;
+      margin: 0 auto 3rem;
+      background: #f2f2ff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .showcase img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      flex: 1 1 300px;
+    }
+    .showcase-content {
+      flex: 2 1 400px;
+    }
+    .showcase-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #4a90e2;
+    }
+    .showcase-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ---------- Contact Form ---------- */
+    .contact {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      background: #f2f2ff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .contact h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #7b4de8;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact input,
+    .contact textarea {
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      resize: none;
+    }
+    .contact button {
+      padding: 0.8rem;
+      border: none;
+      border-radius: 6px;
+      background: #4a90e2;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .contact button:hover {
+      background: #7b4de8;
+    }
+    .contact p.note {
+      text-align: center;
+      font-size: 0.85rem;
       color: #666;
+      margin-top: 0.5rem;
     }
 
-    .gears {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 30px;
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #4a90e2;
+      color: #fff;
     }
 
-    .gear {
-      animation: rotate 4s linear infinite;
-      transform-origin: 50% 50%;
-    }
-
-    .gear.second {
-      animation-direction: reverse;
-      animation-duration: 6s;
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .footer {
-      font-size: 0.9em;
-      color: #aaa;
-      margin-top: 2em;
+    /* ---------- Responsive ---------- */
+    @media(max-width:768px){
+      .showcase {
+        flex-direction: column;
+        text-align: center;
+      }
+      .showcase-content h3 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <svg class="gears" viewBox="0 0 100 100">
-    <g class="gear">
-      <circle cx="50" cy="50" r="20" stroke="#4a90e2" stroke-width="6" fill="none" />
-      <path d="M50 20 L50 10 M50 80 L50 90 M20 50 L10 50 M80 50 L90 50" stroke="#4a90e2" stroke-width="6" />
-    </g>
-    <g class="gear second" transform="translate(25,25)">
-      <circle cx="25" cy="25" r="10" stroke="#50e3c2" stroke-width="4" fill="none" />
-      <path d="M25 15 L25 10 M25 35 L25 40 M15 25 L10 25 M35 25 L40 25" stroke="#50e3c2" stroke-width="4" />
-    </g>
-  </svg>
+  <header>
+    <h1>Noah MD</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <h1>Nothing to see here...(YET)</h1>
-  <p>I'm currently working on building this site</p>
-
-  <form
-  action="https://formspree.io/f/xdkdoqdz"
-  method="POST"
->
-  <label>
-   Type in your email to get notified when I publish this website
-    <input type="email" name="email">
-  </label>
- 
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
-
-  <div class="footer">
-    &copy; 2025 arthurmctriangle.com
+  <div class="banner">
+    <h2>Professional Website Development</h2>
+    <p>I design and build responsive, modern websites. Here’s a featured project for an author website.</p>
   </div>
+
+  <main>
+    <section class="intro" id="about">
+      <h2>Hi! I make websites.</h2>
+      <p>I help people create professional websites for their businesses, projects, or personal brand. Below is one of my featured projects for an author.</p>
+    </section>
+
+    <section class="showcase" id="showcase">
+      <img src="assets/images/davidbook.jpg" alt="Author Website Screenshot">
+      <div class="showcase-content">
+        <h3>Author Website Project</h3>
+        <p>This website was made for an author to showcase their books, blog, and contact details. I handled the layout, responsive design, and styling using HTML & CSS.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h3>Contact Me</h3>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p class="note">*This form does not submit anywhere*</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Noah MD. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
