@@ -3,222 +3,268 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noah MD - Web Developer Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Noah MD — Creative Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    /* ---------- Reset ---------- */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; }
+    :root { --accent: #FFF700; }
 
-    /* ---------- Header & Nav ---------- */
-    header {
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #07070a;
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    a:focus { outline: 2px solid rgba(255,255,255,0.08); }
+
+    .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(6px); }
+    .neon { text-shadow: 0 0 10px rgba(255,247,0,0.25); }
+
+    nav {
+      position: fixed;
+      top: 1rem;
+      width: 100%;
+      z-index: 40;
+      padding: 0 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background: linear-gradient(135deg, #4a90e2, #7b4de8);
-      color: #fff;
-      flex-wrap: wrap;
-    }
-    header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-    nav {
-      display: flex;
-      gap: 1.2rem;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.3rem 0.6rem;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: #FFD700;
     }
 
-    /* ---------- Banner ---------- */
-    .banner {
-      background: linear-gradient(135deg, #4a90e2, #7b4de8);
-      color: #fff;
-      text-align: center;
-      padding: 4rem 1rem;
-    }
-    .banner h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 1rem;
-    }
-    .banner p {
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      max-width: 700px;
-      margin: 0 auto;
+    nav a.logo { font-weight: 600; font-size: 1.25rem; }
+    nav .menu { display: flex; gap: 1.5rem; background: rgba(255,255,255,0.03); padding: 0.5rem; border-radius: 1.5rem; }
+    nav .menu a:hover { background: rgba(255,255,255,0.05); border-radius: 0.5rem; transition: 0.2s; }
+
+    nav .mobile-btn { display: none; background: var(--accent); color: black; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 500; }
+
+    @media (max-width: 768px) {
+      nav .menu { display: none; }
+      nav .mobile-btn { display: block; }
     }
 
-    /* ---------- Main ---------- */
-    main {
-      padding: 2rem 1rem;
-    }
-    .intro {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .intro h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #4a4a4a;
-    }
-    .intro p {
-      font-size: 1rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
+    header { padding-top: 7rem; padding-bottom: 3rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: grid; gap: 3rem; }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: repeat(3,1fr); }
 
-    /* ---------- Showcase ---------- */
-    .showcase {
-      max-width: 1000px;
-      margin: 0 auto 3rem;
-      background: #f2f2ff;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      padding: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: center;
-    }
-    .showcase img {
-      max-width: 400px;
-      width: 100%;
-      border-radius: 8px;
-      flex: 1 1 300px;
-    }
-    .showcase-content {
-      flex: 2 1 400px;
-    }
-    .showcase-content h3 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      color: #4a90e2;
-    }
-    .showcase-content p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
+    h1 { font-size: 2.25rem; line-height: 1.2; font-weight: 800; }
+    @media(min-width:768px){ h1 { font-size: 3.75rem; } }
+    h2 { font-size: 1.875rem; font-weight: 700; margin-bottom: 0.5rem; }
+    p { color: #ccc; }
+    .text-gray-300 { color: #ccc; }
+    .text-gray-400 { color: #aaa; }
+    .text-gray-500 { color: #888; }
+    .text-gray-600 { color: #666; }
 
-    /* ---------- Contact Form ---------- */
-    .contact {
-      max-width: 600px;
-      margin: 0 auto 3rem;
-      background: #f2f2ff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    .contact h3 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #7b4de8;
-    }
-    .contact form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .contact input,
-    .contact textarea {
-      padding: 0.8rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      resize: none;
-    }
-    .contact button {
-      padding: 0.8rem;
-      border: none;
-      border-radius: 6px;
-      background: #4a90e2;
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .contact button:hover {
-      background: #7b4de8;
-    }
-    .contact p.note {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #666;
-      margin-top: 0.5rem;
-    }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border-radius: 9999px; font-weight: 600; cursor: pointer; }
+    .btn-accent { background: var(--accent); color: black; transition: transform 0.2s; }
+    .btn-accent:hover { transform: scale(1.02); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.06); transition: 0.2s; }
+    .btn-outline:hover { background: rgba(255,255,255,0.2); }
 
-    /* ---------- Footer ---------- */
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #4a90e2;
-      color: #fff;
-    }
+    .project, .photo, .short-film, .card { border: 1px solid rgba(255,255,255,0.06); border-radius: 1rem; background: #050508; overflow: hidden; padding: 1rem; transition: transform 0.2s; }
+    .project:hover, .photo:hover, .short-film:hover, .card:hover { transform: scale(1.03); }
 
-    /* ---------- Responsive ---------- */
-    @media(max-width:768px){
-      .showcase {
-        flex-direction: column;
-        text-align: center;
-      }
-      .showcase-content h3 {
-        font-size: 1.5rem;
-      }
-    }
+    .project-img, .photo-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #0a0a0d; border-radius: 0.75rem; color: #888; }
+
+    .tech-tag { display: inline-block; padding: 0.25rem 0.5rem; background: rgba(255,255,255,0.1); border-radius: 0.25rem; font-size: 0.75rem; margin: 0.125rem; }
+
+    .floating-circle { position: absolute; border-radius: 50%; filter: blur(12px); border: 1px solid var(--accent); background: var(--accent); opacity: 0.1; }
+
+    form input, form textarea { width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.06); padding: 0.5rem; border-radius: 0.5rem; color: white; }
+
+    footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem 0; color: #aaa; font-size: 0.875rem; display: flex; justify-content: space-between; align-items: center; }
+
+    /* Animations */
+    .fade-up { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .float { animation: floatAnim 4s ease-in-out infinite; }
+    @keyframes floatAnim { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Noah MD</h1>
-    <nav>
+  <nav>
+    <a href="#home" class="logo neon">@noah_md</a>
+    <div class="menu">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#showcase">Showcase</a>
+      <a href="#projects">Projects</a>
+      <a href="#filmmaking">Filmmaking</a>
       <a href="#contact">Contact</a>
-    </nav>
+    </div>
+    <a href="#contact" class="mobile-btn">Get in touch</a>
+  </nav>
+
+  <header id="home">
+    <div class="container grid grid-2" id="hero">
+      <div class="fade-up" style="transition-delay: 0.1s;">
+        <h1>Hi — I’m <span style="color:var(--accent)">Noah MD</span>, a 12-year-old developer and creator</h1>
+        <p>I build websites, make short films, capture photos, and design creative campaigns — making boring things feel alive</p>
+        <div style="margin-top:2rem;">
+          <a href="#projects" class="btn btn-accent">See projects</a>
+          <a href="#filmmaking" class="btn btn-outline" style="margin-left:1rem;">View my coding projects</a>
+        </div>
+        <div style="margin-top:2rem; font-size:0.875rem; color:#aaa;">
+          <div style="margin-bottom:0.5rem;"><span style="display:inline-block;width:0.5rem;height:0.5rem;border-radius:50%;background:var(--accent);margin-right:0.5rem;"></span> 3 active projects</div>
+          <div>📸 Photography • 🎬 Filmmaking • 💻 Dev</div>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="card glass" style="padding:1.5rem; border-radius:1rem; height:20rem; display:flex; align-items:center; justify-content:center; flex-direction:column;">
+          <div class="text-center" style="color:#888;">
+            <div style="margin-bottom:1rem; font-size:0.875rem;">3D render (placeholder)</div>
+            <div style="width:16rem; height:10rem; background: linear-gradient(to top right,#08121a,#0b0b12); display:flex; align-items:center; justify-content:center; border-radius:0.75rem;">[ 3D RENDER SPACE — add your embed ]</div>
+          </div>
+        </div>
+        <div class="floating-circle" style="right:-1.5rem; bottom:-1.5rem; width:6rem; height:6rem;"></div>
+      </div>
+    </div>
   </header>
 
-  <div class="banner">
-    <h2>Professional Website Development</h2>
-    <p>I design and build responsive, modern websites. Here’s a featured project for an author website.</p>
-  </div>
-
-  <main>
-    <section class="intro" id="about">
-      <h2>Hi! I make websites.</h2>
-      <p>I help people create professional websites for their businesses, projects, or personal brand. Below is one of my featured projects for an author.</p>
-    </section>
-
-    <section class="showcase" id="showcase">
-      <img src="assets/images/davidbook.jpg" alt="Author Website Screenshot">
-      <div class="showcase-content">
-        <h3>Author Website Project</h3>
-        <p>This website was made for an author to showcase their books, blog, and contact details. I handled the layout, responsive design, and styling using HTML & CSS.</p>
+  <main class="container">
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="fade-up">Projects</h2>
+      <p class="text-gray-400 fade-up">Showcasing my websites and apps.</p>
+      <div style="margin-top:2rem; display:grid; gap:2rem; grid-template-columns:1fr 1fr;">
+        <div class="project fade-up">
+          <div style="display:flex; gap:1rem;">
+            <div class="project-img">IMG</div>
+            <div>
+              <h3>My latest website project</h3>
+              <p class="text-gray-400" style="font-size:0.875rem;">A modern and clean website and live updating blog system for a new and upcoming author.</p>
+              <div>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Javascript & HTML</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project fade-up">
+          <div style="display:flex; gap:1rem;">
+            <div class="project-img">IMG</div>
+            <div>
+              <h3>Coming Soon</h3>
+              <p class="text-gray-400" style="font-size:0.875rem;">Coming Soon</p>
+              <div>
+                <span class="tech-tag">Coming Soon</span>
+                <span class="tech-tag">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <h3>Contact Me</h3>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <p class="note">*This form does not submit anywhere*</p>
+    <!-- Filmmaking Section -->
+    <section id="filmmaking">
+      <h2 class="fade-up">Photography & Filmmaking</h2>
+      <p class="text-gray-400 fade-up">Photos and short films</p>
+      <div style="margin-top:2rem; display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+        <div class="photo fade-up">Photo 1</div>
+        <div class="photo fade-up">Photo 2</div>
+        <div class="photo fade-up">Photo 3</div>
+        <div class="short-film fade-up" style="grid-column: span 2;">
+          <div style="color:#ccc; margin-bottom:0.5rem;">Featured short film — embedded</div>
+          <div style="position:relative; padding-top:56.25%; background:black; border-radius:0.5rem;">
+            <iframe src="VIDEO_URL" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D Render Section -->
+    <section id="render">
+      <h2 class="fade-up">3D Render</h2>
+      <p class="text-gray-400 fade-up">Space reserved for a floating 3D model — replace this with your <code>iframe</code> or WebGL embed (Sketchfab / Spline / ModelViewer).</p>
+      <div class="card fade-up" style="height:16rem; display:flex; align-items:center; justify-content:center;">[ Insert 3D embed here — e.g., &lt;model-viewer&gt; or Spline iframe ]</div>
+    </section>
+
+    <!-- Marketing Section -->
+    <section id="marketing">
+      <h2 class="fade-up">Marketing & Branding</h2>
+      <p class="text-gray-400 fade-up">I design campaign concepts, social media graphics, and short-form video promos that help stories reach people.</p>
+      <div style="margin-top:1.5rem; display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+        <div class="card fade-up">
+          <h4>Branding</h4>
+          <p class="text-gray-300" style="font-size:0.875rem;">Logo exploration, colour systems, and visual identity for projects or creators.</p>
+        </div>
+        <div class="card fade-up">
+          <h4>Social Media</h4>
+          <p class="text-gray-300" style="font-size:0.875rem;">Short loops, Reels, and thumbnail-first design to boost engagement and clarity.</p>
+        </div>
+        <div class="card fade-up">
+          <h4>Campaigns</h4>
+          <p class="text-gray-300" style="font-size:0.875rem;">Integrated creative campaigns with clear calls-to-action and analytics-ready setup.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="fade-up">About Me</h2>
+      <div style="margin-top:1rem; display:grid; gap:1.5rem; grid-template-columns:2fr 1fr;">
+        <div class="fade-up text-gray-300">
+          I’m 13 years old and I love building things with code, camera, and design. I spend my time learning new tools, experimenting with motion, and turning stories into experiences that people enjoy. I care about good UX, strong visuals, and simple code that’s well-documented.
+          <ul style="margin-top:1rem; color:#aaa; font-size:0.875rem; list-style:none; padding-left:0;">
+            <li>• Studying React, JS, and creative tools like Blender and Premiere.</li>
+            <li>• Favorite tools: VS Code, Figma, Tailwind, Framer Motion.</li>
+            <li>• Always excited to collaborate — send an idea or a challenge!</li>
+          </ul>
+        </div>
+        <div class="card fade-up" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+          <div style="width:8rem; height:8rem; background:#0b0b0e; display:flex; align-items:center; justify-content:center; margin-bottom:1rem;">PHOTO</div>
+          <div class="text-gray-300" style="font-size:0.875rem;">Age: 13 • Location: [your city]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="fade-up">Contact</h2>
+      <p class="text-gray-400 fade-up">Let’s collaborate — whether it’s a small project, a video idea, or a learning challenge.</p>
+      <div style="margin-top:1.5rem; display:grid; gap:1.5rem; grid-template-columns:1fr 1fr;">
+        <form class="fade-up" style="padding:1.5rem; border:1px solid rgba(255,255,255,0.06); border-radius:1rem; background:#050507; display:flex; flex-direction:column; gap:1rem;">
+          <label>Name</label>
+          <input placeholder="Your name">
+          <label>Message</label>
+          <textarea rows="4" placeholder="Hi! I have a collab idea..."></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <button type="button" class="btn btn-accent">Send</button>
+            <div style="font-size:0.875rem; color:#aaa;">Or email: <a href="mailto:youremail@example.com" class="underline">youremail@example.com</a></div>
+          </div>
+        </form>
+        <div class="fade-up card" style="padding:1.5rem; display:flex; flex-direction:column; gap:0.75rem;">
+          <div style="color:#ccc; margin-bottom:0.5rem;">Socials</div>
+          <a href="#" class="btn btn-outline">Instagram</a>
+          <a href="#" class="btn btn-outline">YouTube</a>
+          <a href="#" class="btn btn-outline">GitHub</a>
+          <a href="#" class="btn btn-outline">TikTok</a>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Noah MD. All rights reserved.</p>
+    <div>© 2025 Noah MD — Creative Developer</div>
+   
   </footer>
 
+  <script>
+    // Animate fade-up sections on scroll
+    const faders = document.querySelectorAll('.fade-up');
+    const options = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
